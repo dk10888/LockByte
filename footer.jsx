@@ -7,9 +7,9 @@ const Footer = () => {
         
         {/* Logo + Copyright */}
         <div className="font-bold text-white text-xl">
-          <span className="text-green-700">&lt;</span>
+          <span className="text-red-700">&lt;</span>
           <span className='hover:font-bold'>Lock</span>
-          <span className="text-green-700 hover:font-bold">Byte&gt;</span> © {new Date().getFullYear()}
+          <span className="text-red-700 hover:font-bold">Byte&gt;</span> © {new Date().getFullYear()}
         </div>
 
         {/* Footer Links */}

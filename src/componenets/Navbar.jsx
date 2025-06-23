@@ -5,9 +5,9 @@ const Navbar = () => {
    <nav className="bg-slate-800 text-white">
     <div className="p-4 flex justify-between item-center px-4 py-5 mycontainer">
 <div className="logo font-bold text-white text-2xl">
-   <span className="text-green-700"> &lt;</span>
+   <span className="text-red-700"> &lt;</span>
   Lock
-  <span className="text-green-700">Byte&gt;</span>
+  <span className="text-red-700">Byte&gt;</span>
 </div>
    
     <ul  >
