@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer className="bg-slate-800 text-white w-full px-6 md:px-28 py-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-around items-center md:items-end text-sm ">
+      <div className="max-w-7xl mx-auto flex flex-col items-center text-sm gap-3">
         
         {/* Logo + Copyright */}
         <div className="font-bold text-white text-xl">
@@ -13,10 +13,10 @@ const Footer = () => {
         </div>
 
         {/* Footer Links */}
-        <div className="flex gap-4 relative ">
-          <a href="" className="hover:font-bold ">Privacy</a>
-          <a href="" className="hover:font-bold">Terms</a>
-          <a href="" className="hover:font-bold">Support</a>
+        <div className="flex gap-4">
+          <a href="#" className="hover:font-bold">Privacy</a>
+          <a href="#" className="hover:font-bold">Terms</a>
+          <a href="#" className="hover:font-bold">Support</a>
         </div>
         
       </div>
