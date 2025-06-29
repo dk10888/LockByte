@@ -8,6 +8,7 @@ const Manager = () => {
   const passwordRef = useRef();
   const [passwordArray, setPasswordArray] = useState([]);
   const [form, setForm] = useState({ site: '', username: '', password: '' });
+  const [search, setsearch] = useState('');
  const getpassword =async() => { 
  let req= await fetch("http://localhost:3000/")
  let passwords=await req.json()
@@ -96,7 +97,10 @@ let res=await fetch("http://localhost:3000/", {
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
+   const filtered=passwordArray.filter(
+    item=>item.site.toLowerCase().includes(search.toLowerCase()) ||
+    item.username.toLowerCase().includes(search.toLowerCase())
+   )
   return (
     <>
       <ToastContainer transition={Bounce} />
@@ -131,13 +135,17 @@ let res=await fetch("http://localhost:3000/", {
             <lord-icon src="https://cdn.lordicon.com/efxgwrkc.json" trigger="loop" delay="600" />
             Add Password
           </button>
-        </div>
+        </div>  
+        <div className="px-4 mt-6">
+         <input  className=" px-2  w-full md:w-1/3 size-10 border border-black rounded-full text-black "  value={search} type="text" placeholder='Search by username or site' onChange={(e)=>setsearch(e.target.value)}/>
 
-        <div className="mt-6">
-          <h2 className="text-red-900 font-bold text-xl pb-2">All Passwords:</h2>
-          {passwordArray.length === 0 ? (
-            <div>No Passwords Added Yet</div>
+        </div>
+        <div className="px-4 mt-6">
+          <h2 className="text-red-900 font-bold text-xl pb-2">Passwords:--</h2>
+          {filtered.length === 0 ? (
+            <div>No Such Passwords Yet</div>
           ) : (
+            
             <div className="overflow-x-auto">
               <table className="table-auto w-full rounded-md overflow-hidden mb-10">
                 <thead className="bg-red-800 text-white">
@@ -149,7 +157,7 @@ let res=await fetch("http://localhost:3000/", {
                   </tr>
                 </thead>
                 <tbody className="bg-red-100">
-                  {passwordArray.map((item, index) => (
+                  {filtered.map((item, index) => (
                     <tr key={index}>
                       <td className="border border-white p-2">
                         <div className="flex items-center justify-center gap-2">
